@@ -52,16 +52,16 @@ router.get('/:post',function(req,res){
   req.post.populate('comments',function(err,post){
       res.json(req.post);
   })
-})
+});
 
 
 router.put('/:post/upvote',function(req,res,next){
   req.post.upvote(function(err,post){
-    if(err){return next(err);}
+    if(err){return next(err)};
 
     res.json(post);
   })
-})
+});
 
 router.post('/:post/comments',function(req,res,next){
   var comment = new Comment(req.body);
@@ -74,12 +74,12 @@ router.post('/:post/comments',function(req,res,next){
       res.json(comment);
     })
   })
-})
+});
 
-router.put('/:post/comments/:comment/upvote'){
+router.put('/:post/comments/:comment/upvote', function(req,res,next){
   req.comment.upvote(function(err,comment){
     res.json(comment);
   })
-}
+});
 
 module.exports = router;
