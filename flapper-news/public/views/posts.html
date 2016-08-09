@@ -6,14 +6,15 @@
       <span ng-hide="post.link">
         {{post.title}}
       </span>
+      <span ng-show="post.author">
+  posted by <a>{{post.author}}</a> |
+    </span>
     </h3>
-  </div>
+</div>
 
-  <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-    <span class="glyphicon glyphicon-thumbs-up"
-      ng-click="incrementUpvotes(comment)"></span>
-    {{comment.upvotes}} - by {{comment.author}}
+<div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span> {{comment.upvotes}} - by {{comment.author}}
     <span style="font-size:20px; margin-left:10px;">
       {{comment.body}}
     </span>
-  </div>
+</div>
